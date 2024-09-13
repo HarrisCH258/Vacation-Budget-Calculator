@@ -1,0 +1,36 @@
+* {
+    background-color: #534055; ;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color: #534055;
+    padding: 10px 0;
+    text-align: center;
+}
+header ul li a {
+    display: inline;
+    padding: 0px;
+    margin: 0 10px;
+    color: black;
+}
+h2 {
+    color: rgb(0, 0, 0);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin: 20px 30px 0px 1000px;
+    
+}
+@media screen and (max-width: 768px) {
+    body {
+        flex-wrap: wrap;
+        display: block;
+        padding: 0px;
+        margin: 0px;
+        color: black;
+    }  
+}
