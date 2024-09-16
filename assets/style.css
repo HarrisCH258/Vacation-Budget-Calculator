@@ -8,6 +8,10 @@ header {
   background-color: #534055;
   padding: 10px 0;
   text-align: center;
+  color: black;
+}
+main{
+  display: flex;
 }
 h2 {
   color: rgb(0, 0, 0);
@@ -22,13 +26,21 @@ header ul li a {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 20px 1000px 0px 30px;
+  margin: 20px 800px 0px 30px;
 }
 .financial {
   display: flex;
   flex-direction: column;
   text-align: left;
   margin: 30px;
+  font-size: 150%;
+}
+.summary {
+  text-align: center;
+  font-size: 200%;
+  border: solid 3px black;
+  width: 400px;
+  align-items: center;
 }
 @media screen and (max-width: 768px) {
   body {

@@ -7,12 +7,17 @@ header {
     background-color: #534055;
     padding: 10px 0;
     text-align: center;
+    color: black;
 }
 header ul li a {
     display: inline;
     padding: 0px;
     margin: 0 10px;
     color: black;
+}
+
+main {
+    margin: 10px;
 }
 h2 {
     color: rgb(0, 0, 0);
