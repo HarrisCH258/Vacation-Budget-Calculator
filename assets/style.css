@@ -47,6 +47,24 @@ header ul li a {
   font-size: 200%;
   width: 400px;
 }
+footer {
+  position: absolute;
+  background-color: rgb(29, 29, 245);
+  color: white;
+  width: 100%;
+  height: 75px;
+  line-height: 30px;
+  margin-top: 0;
+  bottom: 0;
+}
+footer ul li a {
+  display: inline;
+  padding: 20px;
+  margin: 20 20 20 0;
+  color: white;
+  font-size: 150%;
+  text-align: left; 
+}
 @media screen and (max-width: 768px) {
   body {
     flex-wrap: wrap;
