@@ -48,7 +48,7 @@ header ul li a {
   width: 400px;
 }
 @media screen and (max-width: 768px) {
-  body {
+  * {
     flex-wrap: wrap;
     display: block;
     padding: 0px;

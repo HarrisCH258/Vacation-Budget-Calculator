@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <script src="script.js"></script>
+   
     <title>Budget Calculator</title>
 </head>
 <body>
@@ -18,14 +18,13 @@
         </nav>
     </header>
     <main>
+        <form>
         <section class="profile">
             <h2>Profile</h2>
-            <form>
-                <label for="name">Name</label>
-                <input label="name" id="name" /><br>
+                <label for="userName">Username</label>
+                <input label="userName" id="userName" />
                 <label for="income">Income</label>
-                <input label="income" id="income" /><br>
-            </form>
+                <input label="income" id="income" />
         </section>
         <section class="summary">
             <h2>Summary</h2>
@@ -35,22 +34,21 @@
         </section>
         <section class="financial">
             <h2>Expenses</h2>
-            <form>
-                <label for="rent">Rent/Mortgage</label>
-                <input label="rent" id="rent" /><br>
-                <label for="utilities">Utilities</label>
-                <input label="utilities" id="utilities" /><br>
-                <label for="car">Car Insurance</label>
-                <input label="car" id="car" /><br>
-                <label for="Living">Living Expenses</label>
-                <input label="living" id="living" /><br>
-                <button type="add">Add</button>
-                <button type="submit">Submit</button>
+                <label>Rent/Mortgage</label>
+                <input label="rent" id="rent" />
+                <label>Utilities</label>
+                <input label="utilities" id="utilities" />
+                <label>Car Insurance</label>
+                <input label="car" id="car" />
+                <label>Living Expenses</label>
+                <input label="living" id="living" />
+                <button type="submit" id="submit">Submit</button>
                 <p id="error"></p>
-            </form>
         </section>
+        </form>
     </main>
     <footer>
 
     </footer>
+    <script src="assets/script.js"></script>
 </body>
