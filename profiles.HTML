@@ -21,9 +21,9 @@
         <section>
             <h2>Financial Breakdown</h2>
             <ul id="breakdown">
-                <li>Income:</li>
-                <li>Expenses:</li>
-                <li>Savings:</li>
+                <li>Income: $<span id="income">0</span></li>
+                <li>Expenses: $<span id="expenses">0</span></li>
+                <li>Net: $<span id="savings">0</span></li>
             </ul>
         </section>
         <form>
@@ -31,12 +31,13 @@
             <label for="vacation">Vacation Name</label>
             <input label="vacation" id="vacation" />
 
-            <label for="time"></label>
-            <input label="time" id="time" />
-
-            <label for="cost">How much do you want to spend?</label>
-            <input label="cost" id="cost" />    
+            <label for="cost">How much will it cost?</label>
+            <input label="cost" id="cost" />
         </form>
+        <section>
+            <li>It will take <span id="time">0</span> months.</li>
+            <li>It will cost $<span id="monthly-cost">0</span> a month.</li>    
+        </section>
     </main>
     <footer>
         <img src="./assets/dog pic.jpg" alt="Logo" />
