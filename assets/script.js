@@ -31,6 +31,8 @@
         let userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
         userInfo.push(user);
         localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        window.location.href = 'profiles.HTML';
+        
     }
   
     form.addEventListener('submit', handleFormSubmit);
