@@ -12,6 +12,7 @@ header {
 }
 main{
   display: flex;
+  margin-top: 60px;
 }
 h2 {
   color: rgb(0, 0, 0);
@@ -26,21 +27,25 @@ header ul li a {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 20px 800px 0px 30px;
+  margin: 20px 95px 0px 30px;
+  font-size: 200%;
 }
 .financial {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 30px;
-  font-size: 150%;
+  font-size: 200%;
+  width: 425px;
+  margin-left: 95px;
+}
+.financial button {
+  padding: 5px;
+  font-size: 25px;
 }
 .summary {
   text-align: center;
   font-size: 200%;
-  border: solid 3px black;
   width: 400px;
-  align-items: center;
 }
 @media screen and (max-width: 768px) {
   * {
