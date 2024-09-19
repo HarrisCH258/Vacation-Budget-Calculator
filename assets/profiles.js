@@ -1,33 +1,34 @@
-function readLocalStorage(key) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : [];
-}
-  
-function storeLocalStorage(key, newData) {
-    const existingData = localStorage.getItem(key);
-    let dataArray = existingData ? JSON.parse(existingData) : [];
-  
-    dataArray.push(newData);
-  
-    localStorage.setItem(key, JSON.stringify(dataArray));
-}
-
-function displayNoProfileMessage(containerSelector) {
-    var container = document.querySelector(containerSelector);
+document.addEventListener('DOMContentLoaded', () => {
+    const userData = localStorage.getItem('userInfo');
+    if (userData) {
+        const user = JSON.parse(userData);
+        const income = document.getElementById('income');
+        
+        console.log("User income:", user.income);
+        
+        if (user.income !== undefined) {
+            income.textContent = user.income.toString();
+        } else {
+            console.log("Income is undefined.");
+        }
+    }
     
-    container.innerHTML = '';
-
-    var messageElement = document.createElement('p');
-    messageElement.textContent = "No profiles found. Please create a profile on the home page.";
-
-    container.appendChild(messageElement);
-}
-
-function calculateNetIncome() {
-    let totalExpenses = mathfloor(rent.value + utilities.value + car.value + living.value);
+    function getExpenses(rent, utilities, car, living) {
+        const expenses = Math.floor(rent + utilities + car + living);
+        console.log("Expenses:", expenses);
+    }
+    if (userData) {
+        const user = JSON.parse(userData);
+        const totalExpenses = getExpenses(
+            Number(user.rent) || 0,
+            Number(user.utilities) || 0,
+            Number(user.car) || 0,
+            Number(user.living) || 0
+        );
     
-    let netIncome = mathfloor(income.value - totalExpenses);
-    
-    return netIncome;
-}
-console.log(netIncome);
+        const expensesElement = document.getElementById('expenses'); 
+        if (expensesElement) {
+            expenses.textContent = totalExpenses; 
+        } 
+    }
+});

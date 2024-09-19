@@ -18,21 +18,18 @@
 
         error.textContent = '';
 
-        const user = {
+        const userInfoString = JSON.stringify({
             name: userName.value.trim(),
             income: income.value.trim(),
             rent: rent.value.trim(),
             utilities: utilities.value.trim(),
             car: car.value.trim(),
             living: living.value.trim(),
-        };
-
-        let userInfo = JSON.parse(localStorage.getItem('userInfo')) || [];
-        userInfo.push(user);
-        localStorage.setItem('userInfo', JSON.stringify(userInfo));
-        window.location.href = 'profiles.HTML';
+        });
+    
+        localStorage.setItem('userInfo', userInfoString);
         
+        window.location.href = 'profiles.HTML';
     }
   
     form.addEventListener('submit', handleFormSubmit);
-    
