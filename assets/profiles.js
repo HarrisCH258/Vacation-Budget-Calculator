@@ -1,3 +1,15 @@
+function getExpenses(rent, utilities, car, living) {
+    const expenses = rent + utilities + car + living;
+    console.log("Expenses:", expenses);
+    return expenses;
+}
+
+function getSavings(income, expenses) {
+    const savings = income - expenses;
+    console.log("Savings:", savings);
+    return savings;
+}
+
 //Main feature starts at the webpage loading in
 document.addEventListener('DOMContentLoaded', () => {
     const userData = localStorage.getItem('userInfo');
@@ -21,18 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function getExpenses(rent, utilities, car, living) {
-        const expenses = rent + utilities + car + living;
-        console.log("Expenses:", expenses);
-        return expenses;
-    }
-    
-    function getSavings(income, expenses) {
-        const savings = income - expenses;
-        console.log("Savings:", savings);
-        return savings;
-    }
-    
     if (userData) {
         const user = JSON.parse(userData);
         
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', handleVacaFormSubmit);
 });
 
-// Vacation form submission and local storage functionality
+//Vacation form submission and local storage functionality
 function handleVacaFormSubmit(event) {
     event.preventDefault();
     console.log('vaca form submitted');
@@ -87,44 +87,52 @@ function handleVacaFormSubmit(event) {
 
     localStorage.setItem('vacationInfo', vacationInfoString);
 
-    getVacationCostAndTime(); 
+    const userData = localStorage.getItem('userInfo');
+    let savings = 0;
+    if (userData) {
+        const user = JSON.parse(userData);
+        savings = Number(user.income) - getExpenses(
+            Number(user.rent) || 0,
+            Number(user.utilities) || 0,
+            Number(user.car) || 0,
+            Number(user.living) || 0
+        );
+    }
 
-   // function getVacationCostAndTime(cost, amount) {
-    //    const vacationInfo = JSON.parse(localStorage.getItem('vacationInfo'));
-   //     const impossible = document.querySelector('#impossible');
-    //    const monthly = document.querySelector('#monthly-cost');
-    //    const division = vacationInfo.cost / vacationInfo.amount;
-    //    const success = savings - division;
-//
-     //   if (division > savings) {
-    //        impossible.textContent = 'You cannot afford this vacation';
-     //       return;
-      //  } else if (division < savings) {
-      //      monthly.textContent = `You can afford this vacation! You only need to put aside ${success} a month to afford this vacation!`;
-    //        return;
-     //   }
-   // }
-   function getVacationCostAndTime(cost, amount) {
-    const vacationInfo = JSON.parse(localStorage.getItem('vacationInfo'));
+    getVacationCostAndTime(Number(cost.value.trim()), Number(amount.value.trim()), savings); 
+
+    function getVacationCostAndTime(cost, amount, savings) {
+       const vacationInfo = JSON.parse(localStorage.getItem('vacationInfo'));
+       const unfounded = document.querySelector('#unfounded');
+       const impossible = document.querySelector('#impossible');
+       const failure = document.querySelector('#failure');
+       const monthly = document.querySelector('#monthly-cost');
+
     if (!vacationInfo) {
-        impossible.textContent = 'No vacation info found.';
+        unfounded.textContent = 'No vacation info found.';
+        console.log('No vacation info found.');
         return;
     }
 
     if (amount <= 0) {
         impossible.textContent = 'Amount must be greater than zero.';
+        console.log('Amount must be greater than zero.');
         return;
     }
 
     const division = cost / amount;
     const success = savings - division;
+    console.log('Division:', division);
+    console.log('Success:', success);
 
     if (division > savings) {
-        impossible.textContent = 'You cannot afford this vacation';
+        failure.textContent = 'You cannot afford this vacation with your current savings or timeline.';
+        console.log('You cannot afford this vacation with your current savings or timeline.');
+        return;
     } else {
-        monthly.textContent = `You can afford this vacation! You only need to put aside ${success} a month to afford this vacation!`;
+        monthly.textContent = `You can afford this vacation to ${vaca.value}! You only need to put aside $${division} for ${amount} months to afford this vacation!`;
+        console.log(`You can afford this vacation to ${vaca.value}! You only need to put aside $${division} for ${amount} months to afford this vacation!`);
+        return;
     }
 }
-        
-    
 }
