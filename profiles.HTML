@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./assets/profiles.css" />
-    <script src="assets/script.js"></script>
+    <script src="assets/profiles.js"></script>
     <title>Profiles</title>
 </head>
 <body>
@@ -20,23 +20,29 @@
     <main>
         <section>
             <h2>Financial Breakdown</h2>
-            <ul id="breakdown">
-                <li>Income:</li>
-                <li>Expenses:</li>
-                <li>Savings:</li>
+            <ul>
+                <li>Name: <span id="name">User</span></li>
+                <li>Income: $<span id="income">0</span></li>
+                <li>Expenses: $<span id="expenses">0</span></li>
+                <li>Net: $<span id="savings">0</span></li>
             </ul>
         </section>
         <form>
             <h2>Vacation Plans?</h2>
             <label for="vacation">Vacation Name</label>
             <input label="vacation" id="vacation" />
-
-            <label for="time"></label>
-            <input label="time" id="time" />
-
-            <label for="cost">How much do you want to spend?</label>
-            <input label="cost" id="cost" />    
+            <label for="cost">How much will it cost?</label>
+            <input label="cost" id="cost" />
+            <label for="amount">How many months would you like this to take?(Please be realistic)</label>
+            <input label="amount" id="amount" />
+            <button type="submit" id="submit">Submit</button>
+            <p id="error"></p>
         </form>
+        <section>
+            <p><span id="vaca-name"></span></p>
+            <p><span id="impossible">0</span></p>
+            <p><span id="monthly-cost">0</span></p>    
+        </section>
     </main>
     <footer>
         <img src="./assets/dog pic.jpg" alt="Logo" />
