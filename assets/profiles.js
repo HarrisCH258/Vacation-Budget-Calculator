@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Vacation form submission and local storage functionality
-
 function handleVacaFormSubmit(event) {
     event.preventDefault();
     console.log('vaca form submitted');
@@ -88,12 +87,44 @@ function handleVacaFormSubmit(event) {
 
     localStorage.setItem('vacationInfo', vacationInfoString);
 
-    function getVacationCost(cost) {
-        const time = document.querySelector('#time');
-        const monthly = document.querySelector('#monthly-cost');
-        console.log("Vacation cost:", cost);
+    getVacationCostAndTime(); 
 
+   // function getVacationCostAndTime(cost, amount) {
+    //    const vacationInfo = JSON.parse(localStorage.getItem('vacationInfo'));
+   //     const impossible = document.querySelector('#impossible');
+    //    const monthly = document.querySelector('#monthly-cost');
+    //    const division = vacationInfo.cost / vacationInfo.amount;
+    //    const success = savings - division;
+//
+     //   if (division > savings) {
+    //        impossible.textContent = 'You cannot afford this vacation';
+     //       return;
+      //  } else if (division < savings) {
+      //      monthly.textContent = `You can afford this vacation! You only need to put aside ${success} a month to afford this vacation!`;
+    //        return;
+     //   }
+   // }
+   function getVacationCostAndTime(cost, amount) {
+    const vacationInfo = JSON.parse(localStorage.getItem('vacationInfo'));
+    if (!vacationInfo) {
+        impossible.textContent = 'No vacation info found.';
+        return;
     }
+
+    if (amount <= 0) {
+        impossible.textContent = 'Amount must be greater than zero.';
+        return;
+    }
+
+    const division = cost / amount;
+    const success = savings - division;
+
+    if (division > savings) {
+        impossible.textContent = 'You cannot afford this vacation';
+    } else {
+        monthly.textContent = `You can afford this vacation! You only need to put aside ${success} a month to afford this vacation!`;
+    }
+}
         
     
 }
