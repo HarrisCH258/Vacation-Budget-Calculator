@@ -1,3 +1,4 @@
+//Main feature starts at the webpage loading in
 document.addEventListener('DOMContentLoaded', () => {
     const userData = localStorage.getItem('userInfo');
     if (userData) {
@@ -14,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getExpenses(rent, utilities, car, living) {
-        const expenses = Math.floor(rent + utilities + car + living);
+        const expenses = rent + utilities + car + living;
         console.log("Expenses:", expenses);
         return expenses;
     }
     
     function getSavings(income, expenses) {
-        const savings = Math.floor(income - expenses);
+        const savings = income - expenses;
         console.log("Savings:", savings);
         return savings;
     }
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const expensesElement = document.getElementById('expenses'); 
         if (expensesElement) {
-            expensesElement.textContent = totalExpenses.toString(); 
+            expensesElement.textContent = totalExpenses.toFixed(2).toString(); 
         } 
     
         const totalSavings = getSavings(
@@ -47,7 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const savingsElement = document.getElementById('savings'); 
         if (savingsElement) {
-            savingsElement.textContent = totalSavings.toString(); 
+            savingsElement.textContent = totalSavings.toFixed(2).toString(); 
         }
     }
 });
+
+function handleVacaFormSubmit(event) {
+    event.preventDefault();
+    console.log('vaca form submitted');
+    const cost = document.querySelector('cost');
+   
+    if (!cost.value.trim()) {
+        error.textContent = 'Please complete the form';
+        return;
+    }
+
+    error.textContent = '';
+
+    
+}
