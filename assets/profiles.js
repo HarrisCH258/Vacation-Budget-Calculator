@@ -57,6 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savingsElement) {
             savingsElement.textContent = totalSavings.toFixed(2).toString(); 
         }
+
+        if (totalSavings < 0) {
+            const savingsMessage = document.getElementById('negative');
+            savingsMessage.textContent = 'You are spending more than you are making. Please adjust your expenses on the homepage.';
+            return;
+        }
     }
     //activates the handleVacaFormSubmit function for some reason
     var form = document.querySelector('form');
