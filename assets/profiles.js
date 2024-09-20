@@ -57,6 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savingsElement) {
             savingsElement.textContent = totalSavings.toFixed(2).toString(); 
         }
+
+        if (totalSavings < 0) {
+            const savingsMessage = document.getElementById('negative');
+            savingsMessage.textContent = 'You are spending more than you are making. Please adjust your expenses on the homepage.';
+            return;
+        }
     }
     //activates the handleVacaFormSubmit function for some reason
     var form = document.querySelector('form');
@@ -74,6 +80,11 @@ function handleVacaFormSubmit(event) {
 
     if (!cost.value.trim() || !vaca.value.trim() || !amount.value.trim()) {
         error.textContent = 'Please complete the form';
+        return;
+    }
+
+    if (isNaN(cost.value.trim()) || isNaN(amount.value.trim())) {
+        error.textContent = 'Please enter a number';
         return;
     }
 
@@ -108,6 +119,11 @@ function handleVacaFormSubmit(event) {
        const failure = document.querySelector('#failure');
        const monthly = document.querySelector('#monthly-cost');
 
+       unfounded.textContent = '';
+       impossible.textContent = '';
+       failure.textContent = '';
+       monthly.textContent = '';
+
     if (!vacationInfo) {
         unfounded.textContent = 'No vacation info found.';
         console.log('No vacation info found.');
@@ -121,9 +137,7 @@ function handleVacaFormSubmit(event) {
     }
 
     const division = cost / amount;
-    const success = savings - division;
     console.log('Division:', division);
-    console.log('Success:', success);
 
     if (division > savings) {
         failure.textContent = 'You cannot afford this vacation with your current savings or timeline.';
