@@ -11,12 +11,16 @@ var error = document.querySelector('#error');
 function handleFormSubmit(event) {
     event.preventDefault();
     console.log('form submitted');
+    error.textContent = '';
     if (!userName.value.trim() || !income.value.trim() || !rent.value.trim() || !utilities.value.trim() || !car.value.trim() || !living.value.trim()) {
         error.textContent = 'Please complete the form';
         return;
     }
-
-    error.textContent = '';
+    
+    if (isNaN(income.value.trim()) || isNaN(rent.value.trim()) || isNaN(utilities.value.trim()) || isNaN(car.value.trim()) || isNaN(living.value.trim())) {
+        error.textContent = 'Please enter a number';
+        return;
+    }
 
     const userInfoString = JSON.stringify({
         name: userName.value.trim(),

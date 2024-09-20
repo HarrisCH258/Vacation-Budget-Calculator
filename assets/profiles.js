@@ -77,6 +77,11 @@ function handleVacaFormSubmit(event) {
         return;
     }
 
+    if (isNaN(cost.value.trim()) || isNaN(amount.value.trim())) {
+        error.textContent = 'Please enter a number';
+        return;
+    }
+
     error.textContent = '';
 
     const vacationInfoString = JSON.stringify({
@@ -108,6 +113,11 @@ function handleVacaFormSubmit(event) {
        const failure = document.querySelector('#failure');
        const monthly = document.querySelector('#monthly-cost');
 
+       unfounded.textContent = '';
+       impossible.textContent = '';
+       failure.textContent = '';
+       monthly.textContent = '';
+
     if (!vacationInfo) {
         unfounded.textContent = 'No vacation info found.';
         console.log('No vacation info found.');
@@ -121,9 +131,7 @@ function handleVacaFormSubmit(event) {
     }
 
     const division = cost / amount;
-    const success = savings - division;
     console.log('Division:', division);
-    console.log('Success:', success);
 
     if (division > savings) {
         failure.textContent = 'You cannot afford this vacation with your current savings or timeline.';
