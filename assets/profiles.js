@@ -144,8 +144,8 @@ function handleVacaFormSubmit(event) {
         console.log('You cannot afford this vacation with your current savings or timeline.');
         return;
     } else {
-        monthly.textContent = `You can afford this vacation to ${vaca.value}! You only need to put aside $${division} for ${amount} months to afford this vacation!`;
-        console.log(`You can afford this vacation to ${vaca.value}! You only need to put aside $${division} for ${amount} months to afford this vacation!`);
+        monthly.textContent = `You can afford this vacation to ${vaca.value}! You only need to put aside $${division.toFixed(2)} for ${amount} months to afford this vacation!`;
+        console.log(`You can afford this vacation to ${vaca.value}! You only need to put aside $${division.toFixed(2)} for ${amount} months to afford this vacation!`);
         return;
     }
 }
