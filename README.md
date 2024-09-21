@@ -4,10 +4,10 @@ The webpage allows people to input how much they make in a month and give a brea
 It will also help in giving a amount of time and money required for a vacation if they so desire.
 
 ## Usage
-C:\Users\maver\Desktop\project-1\assets\Screenshot 2024-09-20 035331.png
-
+When you open the webpage you can blagh
+![](./assets/Untitled%20Video%20September%2021,%202024%206_23%20PM.gif)
 
 ## Contributors
-Maverick Snider Git Profile link - https://github.com/MavMMSZ
-Jonathan Stevens
-Chad Harris 
+Maverick Snider - https://github.com/MavMMSZ
+Jonathan Stevens - https://github.com/stevens38
+Chad Harris - https://github.com/HarrisCH258
