@@ -7,11 +7,12 @@ var car = document.querySelector('#car');
 var living = document.querySelector('#living');
 var error = document.querySelector('#error');
 
-// Saves info into local storage data to be used in the profiles page
-function handleFormSubmit(event) {
-    event.preventDefault();
-    console.log('form submitted');
+const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
     error.textContent = '';
+
     if (!userName.value.trim() || !income.value.trim() || !rent.value.trim() || !utilities.value.trim() || !car.value.trim() || !living.value.trim()) {
         error.textContent = 'Please complete the form';
         return;
@@ -21,6 +22,12 @@ function handleFormSubmit(event) {
         error.textContent = 'Please enter a number';
         return;
     }
+
+    confirmationModal.show();
+});
+
+document.getElementById('confirmButton').addEventListener('click', function() {
+    console.log('Information confirmed!');
 
     const userInfoString = JSON.stringify({
         name: userName.value.trim(),
@@ -32,8 +39,8 @@ function handleFormSubmit(event) {
     });
     
     localStorage.setItem('userInfo', userInfoString);
-        
+    
     window.location.href = 'profiles.HTML';
-}
-  
-form.addEventListener('submit', handleFormSubmit);
+
+    confirmationModal.hide();
+});
