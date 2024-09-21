@@ -105,7 +105,7 @@ button:hover {
   box-shadow: 0 0 1px 10px rgb(9, 37, 129);
 }
 footer {
-  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/abstract-photo-of-flowing-water-bihaibo.jpg" alt="Flowing water")
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/abstract-photo-of-flowing-water-bihaibo.jpg");
 }
 @media screen and (max-width: 768px) {
   * {
