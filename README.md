@@ -1,14 +1,18 @@
 # Budgeting Calculator
 This webpage is built for those who struggle to budget for themselves.
-The webpage allows people to input how much they make in a month and give a break down as to how much of their monthly wages goes into bills and rent/mortgage.
-It will also help in giving a amount of time and money required for a vacation if they so desire.
-In the process of developing this page it became apparent that it is important to start small and build as you are able. We wanted to add many features which we did not have the time to do.
+The webpage allows people to input how much they make in a month and give a breakdown as to how much of their monthly wages goes into bills and rent/mortgage.
+It can also help with your personal vacation plans if you are unsure if your timeline is affordable or possible.
 
 ## Usage
-When you open the webpage you can enter information about your budget. The webpage will return your information on the next page.
+Once the webpage is opened you will be instructed to fill out your information and click submit. 
+The "Submit" then activates a modal that that asks you to double check your information to make sure its accurate.
+When the modal is confirmed it will push you to a new page called "Profile".
+The "Profile" page will give you a simple financial breakdown and another set of instructions to for you to follow if you'd like to find out if a vacation is feasible.
+Once the vacation form is filled out you can click "submit" and the webpage will give yu a small set of different responses.
+
 ![](./assets/Untitled%20Video%20September%2021,%202024%206_23%20PM.gif)
 
-## Contributors
-Maverick Snider - https://github.com/MavMMSZ
-Jonathan Stevens - https://github.com/stevens38
-Chad Harris - https://github.com/HarrisCH258
+## Contributors w/ Github Profiles
+Maverick Snider - https://github.com/MavMMSZ</br>
+Jonathan Stevens - https://github.com/stevens38</br>
+Chad Harris - https://github.com/HarrisCH258</br>
