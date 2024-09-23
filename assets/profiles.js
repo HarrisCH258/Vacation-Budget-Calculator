@@ -90,6 +90,7 @@ function handleVacaFormSubmit(event) {
 
     error.textContent = '';
 
+    //saves a new array into local storage
     const vacationInfoString = JSON.stringify({
         vaca: vaca.value.trim(),
         cost: cost.value.trim(),
@@ -114,24 +115,12 @@ function handleVacaFormSubmit(event) {
 
     function getVacationCostAndTime(cost, amount, savings) {
        const vacationInfo = JSON.parse(localStorage.getItem('vacationInfo'));
-       const unfounded = document.querySelector('#unfounded');
-       const impossible = document.querySelector('#impossible');
-       const failure = document.querySelector('#failure');
-       const monthly = document.querySelector('#monthly-cost');
+       const response = document.querySelector('#response');
 
-       unfounded.textContent = '';
-       impossible.textContent = '';
-       failure.textContent = '';
-       monthly.textContent = '';
-
-    if (!vacationInfo) {
-        unfounded.textContent = 'No vacation info found.';
-        console.log('No vacation info found.');
-        return;
-    }
+       response.textContent = '';
 
     if (amount <= 0) {
-        impossible.textContent = 'Amount must be greater than zero.';
+        response.textContent = 'Amount must be greater than zero.';
         console.log('Amount must be greater than zero.');
         return;
     }
@@ -140,11 +129,11 @@ function handleVacaFormSubmit(event) {
     console.log('Division:', division);
 
     if (division > savings) {
-        failure.textContent = 'You cannot afford this vacation with your current savings or timeline.';
+        response.textContent = 'You cannot afford this vacation with your current savings or timeline.';
         console.log('You cannot afford this vacation with your current savings or timeline.');
         return;
     } else {
-        monthly.textContent = `You can afford this vacation to ${vaca.value}! You only need to put aside $${division.toFixed(2)} for ${amount} months to afford this vacation!`;
+        response.textContent = `You can afford this vacation to ${vaca.value}! You only need to put aside $${division.toFixed(2)} for ${amount} months to afford this vacation!`;
         console.log(`You can afford this vacation to ${vaca.value}! You only need to put aside $${division.toFixed(2)} for ${amount} months to afford this vacation!`);
         return;
     }
